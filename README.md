@@ -63,7 +63,7 @@ To extract user information from a resume, various features are analyzed. Firstl
 <h1 align="center">Installation</h1>
 
 - ## Cloning the Repository :
-```bash
+
   git clone 
   cd Job-Recomendation
   Creating Conda Environment :
