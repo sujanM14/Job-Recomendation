@@ -6,11 +6,11 @@ from JobRecommendation.config import client
 
 db = client.test
 
-DATA_FILE_PATH="all_locations.csv"
+DATA_FILE_PATH="/home/sujan/Job-Recomendation/data/concatenated_data/data.csv"
 # Database Name
 dataBase = "Job-Recomendation"
 # Collection  Name
-collection = "all_locations_Data"
+collection = "Resume_Data"
 if __name__=="__main__":
     df=pd.read_csv(DATA_FILE_PATH)
     print(f"Rows and columns: {df.shape}")
@@ -18,7 +18,7 @@ if __name__=="__main__":
     df.reset_index(drop=True,inplace=True)
     #Convert dataframe to json so that we can dump these record in mongo db
     json_record = list(json.loads(df.T.to_json()).values())# this is the required format
-    #print(json_record[0])
+    print(json_record[0])
 
     # insert converted json record to modgoDB
     client[dataBase][collection].insert_many(json_record)
